@@ -1,13 +1,9 @@
-const http = require('http');
 const fs = require('fs');
 const os = require('os');
-const path = require('path');
-const child = require('child_process');
-const query = require('queryString');
 const request = require('request');
 
-const currentpath = os.homedir();
 const cpath = os.homedir();
+console.log(cpath);
 
 let name = '天气预报信息';
 request.get({
