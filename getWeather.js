@@ -26,7 +26,15 @@ request.get({
 
         console.log(`当前温度：${cwendu}度 ${diwen}/${gaowen} 风向：${fengxiang} 天气：${tianqi}`)
 
-        fs.writeFile(`./${name}.json`,body,()=>{
-            console.log(`${name}.json文件下载成功`)
-        })
+        fs.exists(`./${name}.json`, function(exists) {
+            // console.log(exists ? `没有<<${name}.json>>文件` : `<<${name}.json>>文件已存在`);
+
+            if(!exists){
+                fs.writeFile(`./${name}.json`,body,()=>{
+                    console.log(`${name}.json文件下载成功`)
+                })
+            }
+        });
+
+
     })
